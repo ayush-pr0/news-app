@@ -60,7 +60,7 @@ export class CreateArticleDto {
   @IsUrl()
   @IsNotEmpty()
   @MaxLength(1000)
-  original_url: string;
+  originalUrl: string;
 
   @ApiProperty({
     description: 'Publication date of the article',
@@ -68,7 +68,7 @@ export class CreateArticleDto {
   })
   @IsDateString()
   @IsNotEmpty()
-  published_at: string;
+  publishedAt: string;
 
   @ApiPropertyOptional({
     description: 'Array of category IDs to associate with the article',
@@ -78,6 +78,6 @@ export class CreateArticleDto {
   @IsArray()
   @IsInt({ each: true })
   @IsOptional()
-  @Transform(({ value }) => (Array.isArray(value) ? value : [value]))
+  @Transform(({ value }): number[] => (Array.isArray(value) ? value : [value]))
   categoryIds?: number[];
 }

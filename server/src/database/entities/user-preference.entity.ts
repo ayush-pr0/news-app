@@ -3,6 +3,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  UpdateDateColumn,
   ManyToOne,
   JoinColumn,
   Index,
@@ -10,12 +11,9 @@ import {
 import { User } from './user.entity';
 import { Category } from './category.entity';
 
-@Entity('keywords')
-@Index('idx_keyword_category_search', ['keyword', 'categoryId'])
-@Index('unique_user_category_keyword', ['userId', 'categoryId', 'keyword'], {
-  unique: true,
-})
-export class Keyword {
+@Entity('user_preferences')
+@Index('unique_user_category', ['userId', 'categoryId'], { unique: true })
+export class UserPreference {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -25,21 +23,21 @@ export class Keyword {
   @Column({ type: 'int', nullable: false, name: 'category_id' })
   categoryId: number;
 
-  @Column({ type: 'varchar', length: 100, nullable: false })
-  keyword: string;
-
-  @Column({ type: 'boolean', default: true, name: 'is_active' })
-  isActive: boolean;
+  @Column({ type: 'boolean', default: true, name: 'is_subscribed' })
+  isSubscribed: boolean;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 
   // Relationships
   @ManyToOne(() => User, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @ManyToOne(() => Category, { onDelete: 'CASCADE' })
+  @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
   category: Category;
 }
