@@ -1,0 +1,14 @@
+{
+  "depcheck": {
+    "ignoreMatches": [
+      "eslint-plugin-prettier",
+      "eslint-config-prettier",
+      "@typescript-eslint/eslint-plugin",
+      "@typescript-eslint/parser",
+      "prettier",
+      "husky",
+      "jest",
+      "@types/jest"
+    ]
+  }
+}
