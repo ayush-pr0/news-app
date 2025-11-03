@@ -21,6 +21,7 @@ import { EmailModule } from './email/email.module';
 import { ArticleReportModule } from './article-reports/article-report.module';
 import { BannedKeywordsModule } from './banned-keywords/banned-keywords.module';
 import { UserReadingHistoryModule } from './user-reading-history/user-reading-history.module';
+import { MetricsModule } from './metrics/metrics.module';
 
 @Module({
   imports: [
@@ -52,6 +53,7 @@ import { UserReadingHistoryModule } from './user-reading-history/user-reading-hi
     ArticleReportModule,
     BannedKeywordsModule,
     UserReadingHistoryModule,
+    MetricsModule,
   ],
 })
 export class AppModule {}
