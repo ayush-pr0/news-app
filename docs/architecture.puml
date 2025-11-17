@@ -1,0 +1,157 @@
+@startuml News_Aggregation_System_Architecture
+
+title News Aggregation System — Application Architecture
+
+left to right direction
+skinparam shadowing false
+skinparam linetype ortho
+skinparam ArrowColor #90A4AE
+skinparam ArrowThickness 1
+skinparam defaultFontName Arial
+skinparam nodesep 40
+skinparam ranksep 40
+skinparam componentStyle rectangle
+skinparam packageStyle rectangle
+skinparam BackgroundColor #FFFFFF
+
+skinparam package {
+  BackgroundColor #F8F9FA
+  BorderColor #B0BEC5
+}
+skinparam component {
+  BackgroundColor #FFFFFF
+  BorderColor #90A4AE
+}
+skinparam database {
+  BackgroundColor #FFFDE7
+  BorderColor #FBC02D
+}
+skinparam cloud {
+  BackgroundColor #E3F2FD
+  BorderColor #1976D2
+}
+skinparam node {
+  BackgroundColor #F3E5F5
+  BorderColor #7B1FA2
+}
+
+cloud "Client (Web/App)" as Client
+cloud "Admin (Ops)" as Admin
+
+frame "News Aggregation Server (NestJS)" as app {
+  package "API Layer" as api {
+    [Auth API]
+    [Users API]
+    [Articles API]
+    [Categories API]
+    [Notifications API]
+    [Article Reports API]
+    [User Preferences API]
+    [News Sources API]
+    [Swagger (/swagger-api)] as SwaggerSetup
+  }
+
+  package "Services" as svc {
+    [Auth Service]
+    [Users Service]
+    [Articles Service]
+    [Categories Service]
+    [Notification Creation Service]
+    [Email Notification Service]
+    [Article Report Service]
+    [User Preferences Service]
+    [News Sources Service]
+  }
+
+  package "Repositories" as repo {
+    [User Repository]
+    [Article Repository]
+    [Category Repository]
+    [Article Report Repository]
+    [News Source Repository]
+  }
+
+  package "Schedulers (Cron)" as sch {
+    [Aggregation Job]
+    [Notification Dispatch]
+  }
+
+  package "Infrastructure" as infra {
+    [AppConfig Service] as AppConfig
+    [Nest ConfigService] as NestConfig
+    [TypeORM]
+    [Validation]
+  [Email Service (SMTP)] as InfraEmail
+    [OpenAPI (Swagger)] as InfraSwagger
+  }
+}
+' --- Layout guidance to keep horizontal order and adjacency ---
+api -[hidden]right-> svc
+svc -[hidden]right-> repo
+repo -[hidden]right-> sch
+sch -[hidden]right-> infra
+
+database "PostgreSQL" as DB
+cloud "External News APIs" as NewsAPIs
+cloud "SMTP Provider" as SMTP
+cloud "Swagger UI" as SwaggerUI
+cloud "Environment (.env)" as Env
+
+SwaggerUI --> SwaggerSetup
+Client --> [Articles API]
+Client --> [Auth API]
+Client --> [Users API]
+Client --> [Categories API]
+Client --> [Notifications API]
+Client --> [Article Reports API]
+Client --> [User Preferences API]
+Client --> [News Sources API]
+Admin --> SwaggerUI
+
+[Articles API] --> [Articles Service]
+[Auth API] --> [Auth Service]
+[Categories API] --> [Categories Service]
+[User Preferences API] --> [User Preferences Service]
+[Notifications API] --> [Notification Creation Service]
+[Article Reports API] --> [Article Report Service]
+[Users API] --> [Users Service]
+[News Sources API] --> [News Sources Service]
+
+[Articles Service] --> [Article Repository]
+[Categories Service] --> [Category Repository]
+[Article Report Service] --> [Article Report Repository]
+[News Sources Service] --> [News Source Repository]
+[Users Service] --> [User Repository]
+[Notification Creation Service] --> [Email Notification Service]
+[Email Notification Service] --> InfraEmail
+[Articles Service] ..> NewsAPIs
+[TypeORM] --> DB
+
+' --- Config wiring ---
+AppConfig --> NestConfig : wraps
+NestConfig --> Env : reads
+TypeORM ..> AppConfig : DB env
+InfraEmail ..> AppConfig : SMTP env
+InfraEmail --> SMTP : send
+
+' Schedulers wiring
+[Aggregation Job] --> [Articles Service]
+[Aggregation Job] ..> NewsAPIs
+[Notification Dispatch] --> [Notification Creation Service]
+[Notification Dispatch] --> [Email Notification Service]
+
+' Infrastructure usage
+InfraSwagger --> SwaggerSetup
+api ..> Validation
+
+legend right
+  |= Area |= Purpose |
+  | API Layer | HTTP endpoints exposed to clients |
+  | Services | Domain logic and orchestration |
+  | Schedulers | Periodic aggregation/notification jobs |
+  | Repositories | Data access with TypeORM |
+  | Infrastructure | Config, Email, Validation, Swagger |
+  | External | DB, SMTP, News APIs |
+endlegend
+
+@enduml
