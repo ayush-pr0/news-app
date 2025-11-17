@@ -4,4 +4,5 @@ export interface IDatabaseConfig {
   username: string;
   password: string;
   name: string;
+  ssl: boolean | Record<string, unknown>;
 }

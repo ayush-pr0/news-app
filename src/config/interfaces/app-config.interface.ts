@@ -7,7 +7,6 @@ export interface IAppConfig {
 
 export interface IConfigService {
   getServerConfig(): IServerConfig;
-  getDatabaseConfig(): IDatabaseConfig;
   getJwtConfig(): IJwtConfig;
   getMailConfig(): IMailConfig;
 }

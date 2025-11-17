@@ -9,7 +9,9 @@ import { AppConfigService } from './config/app-config/app-config.service';
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
   const appConfigService = app.get<AppConfigService>(AppConfigService);
-  const SERVER_PORT: number = appConfigService.getServerPort();
+
+  // Use Heroku's PORT environment variable
+  const PORT = process.env.PORT || appConfigService.getServerPort();
 
   const config = new DocumentBuilder()
     .setTitle('NEWS APP API')
@@ -37,11 +39,14 @@ async function bootstrap(): Promise<void> {
     }),
   );
 
-  await app.listen(SERVER_PORT, () => {
-    console.log(`Application is running at http://localhost:${SERVER_PORT}`);
-    console.log(
-      `Swagger is running at http://localhost:${SERVER_PORT}/${APP.SWAGGER_URL}`,
-    );
+  // Listen on all network interfaces (0.0.0.0) for Heroku
+  await app.listen(PORT, '0.0.0.0', () => {
+    const baseUrl = process.env.HEROKU_APP_NAME
+      ? `https://${process.env.HEROKU_APP_NAME}.herokuapp.com`
+      : `http://localhost:${PORT}`;
+
+    console.log(`✅ Application is running at ${baseUrl}`);
+    console.log(`📚 Swagger is running at ${baseUrl}/${APP.SWAGGER_URL}`);
   });
 }
 

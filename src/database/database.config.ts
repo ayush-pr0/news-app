@@ -11,6 +11,11 @@ export const getDatabaseConfig = (
   password: appConfigService.getDatabasePassword(),
   database: appConfigService.getDatabaseName(),
   entities: [__dirname + '/entities/*.entity{.ts,.js}'],
-  synchronize: appConfigService.isDevelopment(),
-  logging: appConfigService.isDevelopment(),
+  synchronize: true,
+  logging: true,
+  ssl: appConfigService.isDevelopment()
+    ? false
+    : {
+        rejectUnauthorized: false,
+      },
 });

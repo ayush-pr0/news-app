@@ -3,7 +3,6 @@ import { ConfigService } from '@nestjs/config';
 import {
   IServerConfig,
   IEnvironmentConfig,
-  IDatabaseConfig,
   IJwtConfig,
   IMailConfig,
   IConfigService,
@@ -14,7 +13,7 @@ export class AppConfigService implements IConfigService {
   constructor(private readonly configService: ConfigService) {}
 
   public getServerPort(): number {
-    return Number(this.getValue('SERVER_PORT'));
+    return Number(this.getValue('PORT'));
   }
 
   public getEnvironment(): string {
@@ -92,16 +91,6 @@ export class AppConfigService implements IConfigService {
     return {
       port: this.getServerPort(),
       environment: this.getEnvironment(),
-    };
-  }
-
-  public getDatabaseConfig(): IDatabaseConfig {
-    return {
-      host: this.getDatabaseHost(),
-      port: this.getDatabasePort(),
-      username: this.getDatabaseUsername(),
-      password: this.getDatabasePassword(),
-      name: this.getDatabaseName(),
     };
   }
 

@@ -86,8 +86,8 @@ Key entry points:
 
 Prerequisites
 
-- Node.js 18+
-- PostgreSQL
+- Node.js 20 or 20+
+- PostgreSQL 15 or 15+
 
 Install dependencies
 
@@ -97,7 +97,7 @@ npm install
 
 Configure environment
 
-- Copy `.env.example` → `.env` and set values (DB, SERVER_HOST, SERVER_PORT, JWT, mail)
+- Copy `.env.example` → `.env` and set values (DB, SERVER_HOST, PORT, JWT, mail)
 
 Run the server
 
@@ -111,15 +111,19 @@ Seed data (optional)
 npm run seed
 ```
 
+## Deploy on Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?template=https://github.com/ayush-pr0/news-app/tree/master)
+
 ---
 
 ## 📜 API Documentation (Swagger)
 
 - Path: `/{SWAGGER_URL}` (default `/swagger-api`)
-- The server port is read from env (`SERVER_PORT`).
+- The server port is read from env (`PORT`).
 - Defined in `src/main.ts` using `APP.SWAGGER_URL` from `src/common/constants/app.constants.ts`.
 
-Example (if `SERVER_PORT=8000`):
+Example (if `PORT=8000`):
 
 - Swagger: http://localhost:8000/swagger-api
 

@@ -1,0 +1,59 @@
+{
+  "name": "News Aggregator API",
+  "description": "A powerful news aggregation API built with NestJS",
+  "keywords": ["news", "aggregator", "nestjs", "api"],
+  "website": "https://github.com/yourusername/news-app",
+  "repository": "https://github.com/yourusername/news-app",
+  "logo": "https://nestjs.com/img/logo-small.svg",
+  "success_url": "/swagger-api",
+  "stack": "container",
+  "env": {
+    "NODE_ENV": "production",
+    "DATABASE_HOST": {
+      "description": "Database host address"
+    },
+    "DATABASE_PORT": {
+      "description": "Database port number",
+      "value": "5432"
+    },
+    "DATABASE_USERNAME": {
+      "description": "Database username"
+    },
+    "DATABASE_PASSWORD": {
+      "description": "Database password"
+    },
+    "DATABASE_NAME": {
+      "description": "Database name"
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT tokens",
+      "generator": "secret"
+    },
+    "JWT_EXPIRES_IN": "7d",
+    "MAIL_HOST": "smtp.gmail.com",
+    "MAIL_PORT": "465",
+    "MAIL_SECURE": "true",
+    "MAIL_USER": {
+      "description": "Email address for sending emails"
+    },
+    "MAIL_PASS": {
+      "description": "Email password or app-specific password"
+    },
+    "MAIL_FROM_NAME": "News Aggregator",
+    "MAIL_FROM_ADDRESS": {
+      "description": "Sender email address"
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "image": "heroku/nodejs",
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
