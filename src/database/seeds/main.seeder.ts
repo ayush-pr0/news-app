@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import { RoleSeeder } from './seeder/roles.seeder';
-import { AdminSeeder } from './seeder/admin.seeder';
+import { UsersSeeder } from './seeder/users.seeder';
 import { CategorySeeder } from './seeder/categories.seeder';
 import { NewsSourceSeeder } from './seeder/news-sources.seeder';
 import { ArticleSeeder } from './seeder/articles.seeder';
@@ -14,7 +14,7 @@ export class MainSeeder {
       RoleSeeder,
       CategorySeeder,
       NewsSourceSeeder,
-      AdminSeeder,
+      UsersSeeder,
       ArticleSeeder,
       UserReactionsSeeder,
       BookmarksSeeder,
