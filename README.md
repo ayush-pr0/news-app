@@ -243,9 +243,9 @@ All endpoints require a **Bearer token** (JWT) in the `Authorization` header unl
 | `PUT /user-reactions/:articleId` | Like or dislike an article |
 | `POST /user-bookmarks/:articleId` | Bookmark an article |
 | `GET /user-bookmarks` | List bookmarked articles |
-| `GET /user-reading-history` | View reading history |
+| `GET /reading-history` | View reading history |
 | `GET /user-preferences` | Get notification preferences |
-| `PUT /user-preferences` | Update notification preferences |
+| `PUT /user-preferences/:categoryId` | Update notification preferences |
 | `GET /categories` | List available categories |
 | `GET /news-sources` | List external news sources (admin) |
 | `GET /health` | Health check |
