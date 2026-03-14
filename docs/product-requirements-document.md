@@ -18,7 +18,7 @@ A news aggregation system consisting of server and client applications. The serv
    - Manage external news API servers
    - View server status (Active/Inactive)
    - Add and manage news categories
-   - Access/Manage all user (optional)
+   - Access/Manage all users (optional)
 
 ---
 
