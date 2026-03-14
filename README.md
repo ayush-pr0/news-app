@@ -67,7 +67,7 @@ Key capabilities:
 
 - Browse headlines by date or date range
 - Filter by category (All, Business, Entertainment, Sports, Tech, etc.)
-- Full-text search within stored articles
+- Text search within stored articles
 - Sort results by likes or dislikes
 
 ### Personalization & Engagement
