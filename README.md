@@ -1,6 +1,6 @@
 # 📰 News Aggregation System
 
-Powerful, modular, and observable news aggregation backend built with NestJS and TypeScript — fetches from external sources, moderates content, personalizes feeds, and exposes clean APIs and metrics.
+Powerful, modular, and observable news aggregation backend built with NestJS and TypeScript — fetches from external sources, moderates content, collects personalization signals, and exposes clean APIs and metrics.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white&style=for-the-badge)](https://www.typescriptlang.org/)
 [![NestJS](https://img.shields.io/badge/NestJS-Framework-E0234E?logo=nestjs&logoColor=white&style=for-the-badge)](https://nestjs.com/)
@@ -32,7 +32,7 @@ Powerful, modular, and observable news aggregation backend built with NestJS and
 
 ## 🧭 Overview
 
-The **News Aggregation System** is a production-ready REST API backend that ingests news articles from external APIs on a schedule, stores and categorizes them in PostgreSQL, applies content moderation, personalizes results per user, and delivers email notifications. It ships with interactive API docs (Swagger), a Prometheus-compatible metrics endpoint, and a Docker Compose setup for one-command local deployment.
+The **News Aggregation System** is a production-ready REST API backend that ingests news articles from external APIs on a schedule, stores and categorizes them in PostgreSQL, applies content moderation, records personalization-related signals per user, and delivers email notifications. It ships with interactive API docs (Swagger), a Prometheus-compatible metrics endpoint, and a Docker Compose setup for one-command local deployment.
 
 Key capabilities:
 
@@ -75,8 +75,8 @@ Key capabilities:
 - **Reading history** — tracks which articles a user has read
 - **Likes / Dislikes** — per-user reactions on articles
 - **Bookmarks** — save articles for later reference
-- **Personalized feeds** — surfaced based on preference and behavior signals
-- **Engagement analytics** — admin insights into user interactions
+- **Personalization signals** — stored preference and behavior data that can be used by downstream services to build personalized feeds
+- **Engagement data collection** — records user interactions (reads, reactions, bookmarks) for potential analytics or reporting
 
 ### Notifications
 
