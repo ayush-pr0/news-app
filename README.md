@@ -259,7 +259,7 @@ The system fetches news from the following external APIs (configurable via the a
 | **NewsAPI** | [newsapi.org](https://newsapi.org/) |
 | **The News API** | [thenewsapi.com](https://www.thenewsapi.com/documentation) |
 
-API keys are stored in the `news_sources` database table and managed by admins. A source is marked **Active** when its last API call succeeded, and **Inactive** when the call failed or the daily quota was reached.
+API keys are stored in the `news_sources` database table and managed by admins. Each source has an admin-controlled `isActive` flag, and fetch jobs update metadata such as `lastFetchAt` and `lastError`. Source “health” or status in the UI/APIs is derived from `isActive` together with `lastError` (e.g., recent failures or quota issues), but failures do not automatically toggle `isActive` off.
 
 ---
 
