@@ -240,8 +240,8 @@ All endpoints require a **Bearer token** (JWT) in the `Authorization` header unl
 | `POST /auth/login` | Authenticate and receive a JWT |
 | `GET /articles` | List articles (filter by category, date, search) |
 | `GET /articles/:id` | Get a single article |
-| `POST /user-reactions` | Like or dislike an article |
-| `POST /user-bookmarks` | Bookmark an article |
+| `PUT /user-reactions/:articleId` | Like or dislike an article |
+| `POST /user-bookmarks/:articleId` | Bookmark an article |
 | `GET /user-bookmarks` | List bookmarked articles |
 | `GET /user-reading-history` | View reading history |
 | `GET /user-preferences` | Get notification preferences |
