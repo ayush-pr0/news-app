@@ -24,7 +24,7 @@ Powerful, modular, and observable news aggregation backend built with NestJS and
 - [Key Endpoints](#-key-endpoints)
 - [External API Sources](#-external-api-sources)
 - [User Roles](#-user-roles)
-- [Project Structure](#️-project-structure)
+- [Project Structure](#-project-structure)
 - [Documentation](#-documentation)
 - [License](#-license)
 
