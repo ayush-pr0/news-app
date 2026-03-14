@@ -52,7 +52,7 @@ Key capabilities:
 
 - Periodic fetch from multiple external news APIs (cron-based, every 3–4 hours)
 - Article deduplication — no duplicate entries across API calls
-- Auto-categorization of uncategorized articles based on keyword matching
+- Auto-categorization of uncategorized articles by mapping external API categories to internal categories, falling back to "General" when unmapped
 - News source management — admins can add, edit, and monitor external API sources
 - Source status tracking — marked Active/Inactive based on API response health
 
