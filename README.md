@@ -202,7 +202,6 @@ DATABASE_NAME=news_app
 # ── Authentication (JWT) ─────────────────────────────────
 JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
 JWT_EXPIRES_IN=7d
-BCRYPT_SALT_ROUNDS=12     # Optional; defaults to 12
 
 # ── Email (SMTP / Gmail) ─────────────────────────────────
 # For Gmail: enable 2FA and generate an App Password
