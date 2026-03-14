@@ -204,9 +204,6 @@ JWT_SECRET=your-super-secret-jwt-key-here-make-it-long-and-random
 JWT_EXPIRES_IN=7d
 BCRYPT_SALT_ROUNDS=12     # Optional; defaults to 12
 
-# ── CORS ─────────────────────────────────────────────────
-CORS_ORIGIN=http://localhost:3000   # Optional
-
 # ── Email (SMTP / Gmail) ─────────────────────────────────
 # For Gmail: enable 2FA and generate an App Password
 MAIL_HOST=smtp.gmail.com
