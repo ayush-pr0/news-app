@@ -117,7 +117,7 @@ A news aggregation system consisting of server and client applications. The serv
 - Periodic news fetching from external APIs
 - Email notification system
 - Auto-categorization for uncategorized articles
-  - Setup Gemeni API client for text classification (Ollama optional)
+  - Setup Gemini API client for text classification (Ollama optional)
   - Process article content to assign appropriate categories
   - Use pre-trained models for efficient categorization
 
