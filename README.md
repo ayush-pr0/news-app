@@ -189,7 +189,7 @@ Copy `.env.example` to `.env` and configure the following variables:
 
 ```env
 # ── Server ───────────────────────────────────────────────
-SERVER_PORT=3000          # Port the server listens on (Heroku uses PORT automatically)
+PORT=3000                 # Port the server listens on (Heroku uses PORT automatically)
 NODE_ENV=development      # development | production
 
 # ── Database (PostgreSQL) ────────────────────────────────
