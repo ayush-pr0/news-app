@@ -18,7 +18,7 @@ A news aggregation system consisting of server and client applications. The serv
    - Manage external news API servers
    - View server status (Active/Inactive)
    - Add and manage news categories
-   - Access/Manage all user (optional)
+   - Access/Manage all users (optional)
 
 ---
 
@@ -117,7 +117,7 @@ A news aggregation system consisting of server and client applications. The serv
 - Periodic news fetching from external APIs
 - Email notification system
 - Auto-categorization for uncategorized articles
-  - Setup Gemeni API client for text classification (Ollama optional)
+  - Setup Gemini API client for text classification (Ollama optional)
   - Process article content to assign appropriate categories
   - Use pre-trained models for efficient categorization
 
@@ -202,8 +202,8 @@ A news aggregation system consisting of server and client applications. The serv
 - Duplicate articles from multiple APIs should be handled appropriately
 - System only retrieves most recent data, no backfilling of missed intervals
 - LLM integration for auto-categorization:
-  - Use gemeni to find article catogory (ollama optional)
-  - Implement api to get catogory for an article
+  - Use Gemini to find article category (ollama optional)
+  - Implement API to get category for an article
 
 ---
 
