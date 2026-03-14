@@ -111,7 +111,7 @@ Key capabilities:
 | API Docs | `@nestjs/swagger` (OpenAPI 3) |
 | Containerization | Docker (multi-stage, Alpine) + Docker Compose |
 | Deployment | Heroku (Procfile + `heroku.yml`) |
-| Build | SWC (fast TypeScript compilation) |
+| Build | Nest CLI (`nest build` / TypeScript compiler) |
 | Linting / Formatting | ESLint 9 + Prettier 3 + Husky pre-commit hooks |
 | Testing | Jest 29 + ts-jest + Supertest |
 
