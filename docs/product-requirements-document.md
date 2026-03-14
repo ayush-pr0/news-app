@@ -202,8 +202,8 @@ A news aggregation system consisting of server and client applications. The serv
 - Duplicate articles from multiple APIs should be handled appropriately
 - System only retrieves most recent data, no backfilling of missed intervals
 - LLM integration for auto-categorization:
-  - Use gemeni to find article catogory (ollama optional)
-  - Implement api to get catogory for an article
+  - Use Gemini to find article category (ollama optional)
+  - Implement API to get category for an article
 
 ---
 
